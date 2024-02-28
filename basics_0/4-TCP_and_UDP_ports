@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Script pour lister les ports d'écoute, le PID et le nom de chaque socket
+netstat -l -p
