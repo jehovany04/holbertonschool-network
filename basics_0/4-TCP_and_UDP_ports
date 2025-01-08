@@ -1,3 +1,9 @@
-#!/usr/bin/env bash
-# Script pour lister les ports d'écoute, le PID et le nom de chaque socket
-netstat -l -p
+#!/bin/bash
+
+# Displaying listening TCP and UDP ports with PID and program name
+echo "Active Internet connections (only servers)"
+ss -tuln | awk 'NR==1; NR > 1 {print "Proto " $1 " " $2 " " $3 " " $4 " " $5 " " $6 " " $7 " " $8}'
+
+echo ""
+echo "Active UNIX domain sockets (only servers)"
+ss -x -a | awk 'NR==1; NR > 1 {print "Proto " $1 " " $2 " " $3 " " $4 " " $5 " " $6 " " $7 " " $8}'
